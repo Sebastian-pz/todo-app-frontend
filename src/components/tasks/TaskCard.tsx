@@ -28,7 +28,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, refetchAction }) => {
   };
 
   return (
-    <div className="bg-white shadow rounded-lg p-4 flex items-center justify-between">
+    <div className="bg-white shadow rounded-lg p-6 flex items-center w-auto justify-between">
       <div>
         <Link href={`/tasks/${task.id}`}>
           <h3 className=" text-gray-900 hover:text-indigo-700 font-semibold">
@@ -49,7 +49,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, refetchAction }) => {
           </span>
         </p>
       </div>
-      <div className="flex space-x-2">
+      <div className="flex mx-6 space-x-2">
         {/* Solo aparece el botón si no está completa */}
         {task.status !== TaskStatus.COMPLETED && (
           <button

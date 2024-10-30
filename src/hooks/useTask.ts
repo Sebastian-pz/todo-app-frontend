@@ -1,10 +1,6 @@
 import { tasksService } from "@/lib/api/tasks";
-import { Task, TaskUpdate } from "@/types/task.types";
+import { Task } from "@/types/task.types";
 import { useEffect, useState } from "react";
-
-interface useTaskProps {
-  id: string;
-}
 
 export const useTask = (id: string) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,6 +24,7 @@ export const useTask = (id: string) => {
       setIsLoading(true);
       const { id, createdAt, ...updatedTask } = task;
       await tasksService.updateTask(task.id, updatedTask);
+      setIsLoading(false);
     } catch (error) {
       console.error("Error updating task:", error);
     } finally {

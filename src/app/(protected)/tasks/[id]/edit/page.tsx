@@ -48,7 +48,6 @@ export default function page() {
     } catch (e) {
       setIsLoadingUpdate(false);
     }
-    console.log(data);
   }
 
   return (

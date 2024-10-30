@@ -50,7 +50,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ refetch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 min-w-80">
       <div>
         <label
           htmlFor="title"
@@ -65,7 +65,9 @@ const TaskForm: React.FC<TaskFormProps> = ({ refetch }) => {
           className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm text-gray-900"
         />
         {errors.title && (
-          <p className="mt-1 text-sm text-red-600">{errors.title.message}</p>
+          <p className="mt-1 text-sm text-red-600 text-wrap">
+            {errors.title.message}
+          </p>
         )}
       </div>
 
@@ -83,7 +85,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ refetch }) => {
           className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm text-gray-900"
         />
         {errors.description && (
-          <p className="mt-1 text-sm text-red-600">
+          <p className="mt-1 text-sm text-red-600 text-wrap">
             {errors.description.message}
           </p>
         )}
@@ -103,7 +105,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ refetch }) => {
           type="date"
         />
         {errors.completionDate && (
-          <p className="mt-1 text-sm text-red-600">
+          <p className="mt-1 text-sm text-red-600 text-wrap">
             {errors.completionDate.message}
           </p>
         )}
